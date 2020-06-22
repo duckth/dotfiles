@@ -5,6 +5,7 @@ Plug 'tpope/vim-surround'
 Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'PProvost/vim-ps1'
 
 call plug#end()
 
@@ -38,7 +39,13 @@ let mapleader = " "
 "inoremap { {}<left>
 "inoremap {<CR> {<CR>}<ESC>O
 "inoremap {;<CR> {<CR>};<ESC>O
+inoremap {<CR> {<CR>}<ESC>O
 
+" Keybinds to copy to and paste from clipboard (Windows only has one clipboard)
+vnoremap <leader>y "*y
+nnoremap <leader>p "*p
+
+" Keybinds to navigate splits
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -53,3 +60,6 @@ endif
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Compile and run Rust project with a keybind
+:nnoremap <leader>r :w <bar> !cargo run<CR>
