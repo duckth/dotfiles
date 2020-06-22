@@ -49,3 +49,6 @@ Install all three with:
 ```
 choco install ripgrep
 ```
+
+## Todos
+- [ ] Write an installation script (to put these files in the correct places, install dependencies if necessary etc.)
