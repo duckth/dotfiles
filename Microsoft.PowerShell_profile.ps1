@@ -13,3 +13,8 @@ function prompt {
     # Return the remaining prompt content
     "`r`n$("+"*(Get-Location -Stack).Count)> "
 }
+
+# Assumes that alacritty is installed
+function elevate {
+    Start-Process "alacritty" -Verb RunAs
+}
