@@ -54,8 +54,15 @@ function pd {
 
             $paths | Where-Object { $_ -like "*$inp*" }
         })]
-        [String] $path
+        [String] $arg
     )
+
+    if ($args.count -gt 0) {
+        $pathList = $arg, [system.String]::Join(" ", $args)
+        $path = [system.String]::Join(" ", $pathList)
+    } else {
+        $path = $arg
+    }
 
     cd $path
 }
