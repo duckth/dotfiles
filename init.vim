@@ -6,6 +6,8 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PProvost/vim-ps1'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -51,6 +53,11 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
+" I have to press Shift to insert a colon, so it happens far too often that I
+" write W rather than w and Q rather than q.. So let's map those to w and q..
+command W :w
+command Q :q
+
 " Sets search for ripgrep to project root
 if executable('rg')
     let g:rg_derive_root='true'
@@ -61,5 +68,14 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Show docs
+nnoremap <leader>d :call CocAction('doHover')<CR>
+" Jump to definition (in a new tab if it's in another file)
+nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+
 " Compile and run Rust project with a keybind
 :nnoremap <leader>r :w <bar> !cargo run<CR>
+:nnoremap <leader>tr :tabnew <bar> term cargo run<CR>
+
+" Ignore .gitignore items in ctrlp.vim
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
