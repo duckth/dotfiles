@@ -1,7 +1,7 @@
 Set-Alias vi nvim
 
 $VIMDIR = "$HOME\Appdata\Local\nvim"
-$VIMFILE = "$VIMDIR\init.vim"
+$VIMFILE = "$HOME\.vimrc"
 
 function prompt {
     # Abbreviate the path unix-style
