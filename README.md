@@ -27,7 +27,7 @@ Install your wanted packages with
 ```
 To find packages, I recommend
 ```
-:CocInstall marketplace
+:CocInstall coc-marketplace
 ```
 Then you can run
 ```
