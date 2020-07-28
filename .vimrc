@@ -8,6 +8,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PProvost/vim-ps1'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'cespare/vim-toml'
+Plug 'pangloss/vim-javascript'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -79,3 +81,5 @@ nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 
 " Ignore .gitignore items in ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+let g:NERDSpaceDelims = 1
