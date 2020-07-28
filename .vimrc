@@ -79,6 +79,9 @@ nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 :nnoremap <leader>r :w <bar> !cargo run<CR>
 :nnoremap <leader>tr :tabnew <bar> term cargo run<CR>
 
+" Run main.py with terminal output in vertical split (only active in python files)
+autocmd FileType python nnoremap<buffer> <leader>tr :vs <bar> :wincmd l <bar> term main.py<CR>
+
 " Ignore .gitignore items in ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
