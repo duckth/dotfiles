@@ -6,10 +6,11 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PProvost/vim-ps1'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -65,6 +66,9 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
+" Open fzf with Ctrl + p
+nnoremap <C-p> :Files<CR>
+
 " Use tab and shift-tab to navigate coc completions. Enter to use completion.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -75,14 +79,12 @@ nnoremap <leader>d :call CocAction('doHover')<CR>
 " Jump to definition (in a new tab if it's in another file)
 nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 
+" Add a space between // and the actual comment content in JS files
+autocmd FileType javascript let g:NERDSpaceDelims = 1
+
 " Compile and run Rust project with a keybind
 :nnoremap <leader>r :w <bar> !cargo run<CR>
 :nnoremap <leader>tr :tabnew <bar> term cargo run<CR>
 
 " Run main.py with terminal output in vertical split (only active in python files)
 autocmd FileType python nnoremap<buffer> <leader>tr :vs <bar> :wincmd l <bar> term main.py<CR>
-
-" Ignore .gitignore items in ctrlp.vim
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-let g:NERDSpaceDelims = 1
