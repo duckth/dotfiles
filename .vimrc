@@ -8,6 +8,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -18,6 +19,8 @@ colorscheme gruvbox
 
 set number
 set relativenumber
+
+language en
 
 " Indentation settings
 set tabstop=4 softtabstop=4
@@ -55,6 +58,9 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+
+" Shorthand for accesing vertical resize command
+nnoremap <leader>vr :vertical resize 
 
 " I have to press Shift to insert a colon, so it happens far too often that I
 " write W rather than w and Q rather than q.. So let's map those to w and q..
