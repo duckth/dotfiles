@@ -92,5 +92,19 @@ autocmd FileType javascript let g:NERDSpaceDelims = 1
 :nnoremap <leader>r :w <bar> !cargo run<CR>
 :nnoremap <leader>tr :tabnew <bar> term cargo run<CR>
 
-" Run main.py with terminal output in vertical split (only active in python files)
-autocmd FileType python nnoremap<buffer> <leader>tr :vs <bar> :wincmd l <bar> term main.py<CR>
+" Run python program with terminal output in vertical split. If main.py exists
+" in the current directory, run that - otherwise run the currently open file.
+function! RunPythonProgram()
+   if filereadable('main.py')
+       let pyfile = 'main.py'
+   else
+       " @% means the current file
+       let pyfile = @%
+   endif
+
+   echo 'Running' pyfile
+   execute 'vs | wincmd l | term python' pyfile
+endfunction
+
+" Keybind for running python program (only active in python files)
+autocmd FileType python nnoremap<buffer> <leader>tr :call RunPythonProgram()<CR>
