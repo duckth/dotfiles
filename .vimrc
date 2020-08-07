@@ -88,9 +88,8 @@ nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 " Add a space between // and the actual comment content in JS files
 autocmd FileType javascript let g:NERDSpaceDelims = 1
 
-" Compile and run Rust project with a keybind
-:nnoremap <leader>r :w <bar> !cargo run<CR>
-:nnoremap <leader>tr :tabnew <bar> term cargo run<CR>
+" Compile and run Rust project in vertical split (only active in Rust files)
+autocmd FileType rust nnoremap<buffer> <leader>tr :vs <bar> :wincmd l <bar> term cargo run<CR>
 
 " Run python program with terminal output in vertical split. If main.py exists
 " in the current directory, run that - otherwise run the currently open file.
