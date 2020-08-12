@@ -1,0 +1,17 @@
+" https://github.com/KongBorup/terminal-config/blob/master/.vimrc
+source ~/.vimrc
+
+" Enable surround.vim emulation
+set surround
+
+" Disable bell sounds
+set visualbell
+set noerrorbells
+
+" Bind keys to IDE actions
+nnoremap <C-p> :action SearchEverywhere<CR>
+nnoremap <leader>tr :action Run<CR>
+
+" Reset keymap to avoid generating two }'s
+inoremap {<CR> {<CR>
+
