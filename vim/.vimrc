@@ -1,17 +1,16 @@
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'PProvost/vim-ps1'
-Plug 'cespare/vim-toml'
-Plug 'pangloss/vim-javascript'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'PProvost/vim-ps1'
+Plug 'cespare/vim-toml'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -19,8 +18,6 @@ colorscheme gruvbox
 
 set number
 set relativenumber
-
-language en
 
 " Indentation settings
 set tabstop=4 softtabstop=4
@@ -107,3 +104,13 @@ endfunction
 
 " Keybind for running python program (only active in python files)
 autocmd FileType python nnoremap<buffer> <leader>tr :call RunPythonProgram()<CR>
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+

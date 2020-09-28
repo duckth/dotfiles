@@ -1,4 +1,4 @@
-" https://github.com/KongBorup/terminal-config/blob/master/.vimrc
+" https://github.com/KongBorup/dotfiles
 source ~/.vimrc
 
 " Enable surround.vim emulation
