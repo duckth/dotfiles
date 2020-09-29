@@ -48,7 +48,7 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
 
-working_directory: C:\Users\avbor\coding
+working_directory: C:\Users\Adrian
 
 key_bindings:
   - { key: N,      mods: Control|Shift,            action: SpawnNewInstance }
