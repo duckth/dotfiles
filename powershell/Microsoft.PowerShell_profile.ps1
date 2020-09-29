@@ -66,3 +66,7 @@ function pd {
 
     cd $path
 }
+
+Invoke-Expression (&starship init powershell)
+$ENV:STARSHIP_CONFIG = "$HOME/dotfiles/starship/starship.toml"
+
