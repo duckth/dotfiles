@@ -86,8 +86,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Show docs
 nnoremap <leader>d :call CocAction('doHover')<CR>
-" Jump to definition (in a new tab if it's in another file)
-nnoremap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+" Jump to definition
+nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
 
 " Add a space between // and the actual comment content in JS files
 autocmd FileType javascript let g:NERDSpaceDelims = 1
