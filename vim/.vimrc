@@ -28,6 +28,10 @@ set shiftwidth=4
 set expandtab
 set smartindent
 
+" File type specific indentation spacings
+autocmd FileType javascript set tabstop=2 softtabstop=2
+autocmd FileType javascript set shiftwidth=2
+
 set noswapfile
 set undodir=$HOME/.nvim/undodir
 set undofile
