@@ -8,9 +8,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Language specific
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
+Plug 'uiiaoo/java-syntax.vim'
 
 call plug#end()
 
