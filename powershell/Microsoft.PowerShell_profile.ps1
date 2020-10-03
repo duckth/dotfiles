@@ -14,9 +14,9 @@ function prompt {
     "`r`n$("+"*(Get-Location -Stack).Count)> "
 }
 
-# Assumes that alacritty is installed
+# Assumes that Windows Terminal is installed
 function elevate {
-    Start-Process "alacritty" -Verb RunAs
+    Start-Process "wt" -Verb RunAs
 }
 
 # gt: shorthand for "go to", a custom version of cd that saves the cd location.
