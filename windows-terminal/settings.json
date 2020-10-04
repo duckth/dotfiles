@@ -31,9 +31,10 @@
             "fontFace": "JetBrains Mono",
             "fontSize": 10,
             "colorScheme": "Gruvbox Dark",
-            "tabColor": "#282828",
+            "tabColor": "#262626",
             "cursorShape": "vintage",
-            "cursorColor" : "#EBDBB2"
+            "cursorColor" : "#EBDBB2",
+            "padding": "15, 15, 15, 15"
         },
         "list":
         [
@@ -71,8 +72,8 @@
     "schemes": [
         {
             "name" : "Gruvbox Dark",
-            "background" : "#282828",
-            "black" : "#282828",
+            "background" : "#262626",
+            "black" : "#262626",
             "blue" : "#458588",
             "brightBlack" : "#928374",
             "brightBlue" : "#83A598",
