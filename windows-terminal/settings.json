@@ -28,8 +28,8 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "JetBrains Mono",
-            "fontSize": 10,
+            "fontFace": "JetBrainsMono NF",
+            "fontSize": 11,
             "colorScheme": "Gruvbox Dark",
             "tabColor": "#262626",
             "cursorShape": "vintage",
@@ -98,12 +98,6 @@
     // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
     "actions":
     [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
-        { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-        { "command": "paste", "keys": "ctrl+v" },
-
         // Press Ctrl+Shift+F to open the search box
         { "command": "find", "keys": "ctrl+shift+f" },
 
