@@ -38,7 +38,7 @@ set undofile
 
 set incsearch
 
-set colorcolumn=80,100
+set colorcolumn=80,100,120
 set nowrap
 
 let mapleader = " "
@@ -70,6 +70,9 @@ nnoremap <leader>vr :vertical resize
 " write W rather than w and Q rather than q.. So let's map those to w and q..
 command W :w
 command Q :q
+
+" On Danish keyboards, Æ is where the : is on US keyboards
+nnoremap æ :
 
 " Sets search for ripgrep to project root
 if executable('rg')
