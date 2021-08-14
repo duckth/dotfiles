@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
