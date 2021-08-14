@@ -1,3 +1,4 @@
+Rename-Item -Path .gitconfig.default -NewName .gitconfig
 Push-Location $HOME
 try {
     New-Item -ItemType SymbolicLink -Name .gitconfig -Target $HOME/dotfiles/git/.gitconfig -ea Stop
