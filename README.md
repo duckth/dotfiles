@@ -2,6 +2,31 @@
 These are the files for setting up my terminal.
 
 ## Installation
+### Prerequisites
+* [Windows Package Manager](https://github.com/microsoft/winget-cli/releases)
+* [Chocolatey](https://chocolatey.org/install)
+
+### PowerShell 7
+```
+winget install --id Microsoft.PowerShell -e
+```
+
+### Windows Terminal Preview
+```
+winget install --id Microsoft.WindowsTerminalPreview -e
+```
+
+### Starship
+```
+choco install starship
+```
+or use Scoop
+```
+scoop install starship
+```
+
+
+
 ### Neovim
 ```ps
 choco install neovim
