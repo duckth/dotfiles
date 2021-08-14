@@ -1,0 +1,10 @@
+[core]
+	editor = \"C:\\Users\\andre\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
+[user]
+	email = andreastrstrup@gmail.com
+	name = Andreas Trøstrup
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch
