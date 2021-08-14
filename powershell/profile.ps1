@@ -56,5 +56,4 @@ Set-Alias -Name ipconfig -Value Get-NetIPConfiguration
 
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"
-
-
+$VIMFILE = "$HOME\dotfiles\nvim\init.vim"
