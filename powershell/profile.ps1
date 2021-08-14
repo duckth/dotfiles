@@ -20,7 +20,10 @@ if($num -eq 69 ) {
 Write-Host "Launching Windows PowerShell..."
 
 # Load own custom functions at startup
-$functions = "$env:USERPROFILE\custom-functions-ps"
+if ( Test-Path -Path "$env:USERPROFILE\custom-functions-ps" )
+{
+  $functions = "$env:USERPROFILE\custom-functions-ps"
+}
 
 Write-Host "Loaded custom functions." -ForegroundColor Green
 Get-ChildItem "$functions\*.ps1" | %{.$_}
