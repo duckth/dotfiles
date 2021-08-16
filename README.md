@@ -3,6 +3,7 @@ These are the files for setting up my terminal.
 
 ## Installation
 ### Prerequisites
+See the [wiki](https://github.com/Duckth/dotfiles/wiki/Setting-up-prerequisites) for help
 * [Windows Package Manager](https://github.com/microsoft/winget-cli/releases)
 * [Chocolatey](https://chocolatey.org/install)
 
