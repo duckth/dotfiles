@@ -1,42 +1,17 @@
 # terminal-config
-These are the files for setting up my terminal.
+These are the files for setting up my terminal - files such as alacritty config and vim config.
 
 ## Installation
-### Prerequisites
-See the [wiki](https://github.com/Duckth/dotfiles/wiki/Setting-up-prerequisites) for help
-* [Windows Package Manager](https://github.com/microsoft/winget-cli/releases)
-* [Chocolatey](https://chocolatey.org/install)
-
-### PowerShell 7
-```
-winget install --id Microsoft.PowerShell -e
-```
-
-### Windows Terminal Preview
-```
-winget install --id Microsoft.WindowsTerminalPreview -e
-```
-
-### Starship
-```
-choco install starship
-```
-or use Scoop
-```
-scoop install starship
-```
-
-
-
 ### Neovim
+At the time of writing, v0.4x is broken on Windows - specifically it is not possible to insert characters utilising the Alt key, such as `{` on Nordic-layout keyboards. Install the pre-release (v0.5x) to fix.
 ```ps
-choco install neovim
+choco install neovim --pre
 ```
 
 ### vim-plug
-```ps
+```powershell
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+    ni $HOME/vimfiles/autoload/plug.vim -Force
 ```
 Open the vim config file and install the listed plugins with:
 ```
@@ -57,6 +32,16 @@ Then you can run
 :CocList marketplace
 ```
 and search for available packages by their name and description.
+
+At the time of writing, these are the most useful to me:
+ - [`coc-rls`](https://github.com/neoclide/coc-rls) (or `coc-rust-analyzer`) for Rust
+ - [`coc-tsserver`](https://github.com/neoclide/coc-tsserver) for JavaScript
+ - [`coc-snippets`](https://github.com/neoclide/coc-snippets) for great snippet tooling. A great feature is to download VS Code snippet extensions into vim - for example `:CocInstall https://github.com/xabikos/vscode-javascript` to install a lot of JavaScript snippets.
+
+Install all three with:
+```
+:CocInstall coc-rls coc-snippets coc-tsserver
+```
 
 ### Ripgrep
 ```
