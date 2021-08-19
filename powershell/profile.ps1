@@ -45,18 +45,17 @@ Write-Host ''
 
 #}
 
-
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-# Starship stuff
-Invoke-Expression (&starship init powershell)
-
-Set-Alias -Name ipconfig -Value Get-NetIPConfiguration
+Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"
 $VIMFILE = "$HOME\dotfiles\nvim\init.vim"
+
+# Starship stuff
+Invoke-Expression (&starship init powershell)
