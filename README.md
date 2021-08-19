@@ -63,5 +63,11 @@ and search for available packages by their name and description.
 choco install ripgrep
 ```
 
+### fzf for pwsh:
+```
+choco install fzf
+Install-Module -Name PSFzf
+```
+
 ## Todos
 - [ ] Write an installation script (to put these files in the correct places, install dependencies if necessary etc.)
