@@ -1,10 +1,12 @@
-Push-Location $env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState
+$WTDIR = $Env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
+if (Test-Path -Path $WTDIR ) { Remove-Item -Path $WTDIR -Force –Recurse }
+Push-Location $env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe
 try {
-    New-Item -ItemType HardLink -Name settings.json -Target $HOME/dotfiles/windows-terminal/settings.json -ea Stop
-    Write-Host 'Linked settings.json (Windows Terminal Preview)'
+    New-Item -ItemType SymbolicLink -Name LocalState -Target $HOME/dotfiles/windows-terminal/settings -ea Stop
+    Write-Host 'Linked settings (Windows Terminal Preview)'
 }
 catch [Exception] {
-    Write-Host 'Failed to link settings.json (Windows Terminal Preview): ' -NoNewLine
+    Write-Host 'Failed to link settings (Windows Terminal Preview): ' -NoNewLine
     Write-Host $_.Exception.Message
 }
 Pop-Location
