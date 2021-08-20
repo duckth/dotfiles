@@ -1,4 +1,3 @@
-
 # Startup message
 $CurUser = (Get-ChildItem Env:\USERNAME).Value
 
@@ -14,19 +13,18 @@ elseif ($CurTime -gt 19 -or $CurTime -le 3) {
   $Greeting = "Good evening, "
 }
 $num = Get-Random -Maximum 100
-if($num -eq 69 ) {
+if ($num -eq 69 ) {
   $Greeting = "Go fuck yourself, "
 }
 Write-Host "Launching Windows PowerShell..."
 
 # Load own custom functions at startup
-if ( Test-Path -Path "$env:USERPROFILE\custom-functions-ps" )
-{
+if ( Test-Path -Path "$env:USERPROFILE\custom-functions-ps" ) {
   $functions = "$env:USERPROFILE\custom-functions-ps"
 }
 
 Write-Host "Loaded custom functions." -ForegroundColor Green
-Get-ChildItem "$functions\*.ps1" | %{.$_}
+Get-ChildItem "$functions\*.ps1" | % { .$_ }
 
 Write-Host -NoNewLine $Greeting
 Write-Host "$CurUser" -ForegroundColor Blue
@@ -56,6 +54,23 @@ Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"
 $VIMFILE = "$HOME\dotfiles\nvim\init.vim"
+
+
+# Custom aliases
+Set-Alias -Name "path" -Value "Get-PathEnvironmentVariable"
+Set-Alias -Name "addpath" -Value "Update-PathEnvironmentVariable"
+Set-Alias -Name "grep" -Value "rg"
+Set-Alias -Name "vim" -Value "nvim"
+Set-Alias -Name "vi" -Value "nvim"
+# Set-Alias -name "winword" -Value "C:\Program Files\Microsoft Office 15\root\office15\winword.exe"
+Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe"
+# Set-Alias -Name "audacity" -Value "C:\Program Files (x86)\Audacity\audacity.exe"
+Set-Alias -Name "touch" -Value "New-Item"
+function ll() { lsd -l }
+
+
+
+
 
 # Starship stuff
 Invoke-Expression (&starship init powershell)
