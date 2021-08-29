@@ -342,6 +342,27 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
+        },
+        {
+            "name" : "Ayu Dark",
+            "background" : "#0a0e14",
+            "black" : "#01060e",
+            "blue" : "#53bdfa",
+            "brightBlack" : "#686868",
+            "brightBlue" : "#59c2ff",
+            "brightCyan" : "#95e6cb",
+            "brightGreen" : "#c2d94c",
+            "brightPurple" : "#ffee99",
+            "brightRed" : "#f07178",
+            "brightWhite" : "#ffffff",
+            "brightYellow" : "#ffb454",
+            "cyan" : "#90e1c6",
+            "foreground" : "#b3b1ad",
+            "green" : "#91b362",
+            "purple" : "#fae994",
+            "red" : "#ea6c73",
+            "white" : "#c7c7c7",
+            "yellow" : "#f9af4f"
         }
     ]
 }
