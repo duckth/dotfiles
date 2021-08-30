@@ -63,6 +63,7 @@ Set-Alias -Name "grep" -Value "rg"
 Set-Alias -Name "vim" -Value "nvim"
 Set-Alias -Name "vi" -Value "nvim"
 Set-Alias -Name "touch" -Value "New-Item"
+Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe" 
 function ll() { lsd -l }
 
 
