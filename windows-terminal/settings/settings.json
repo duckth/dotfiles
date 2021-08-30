@@ -83,7 +83,7 @@
         "list": 
         [
             {
-                "colorScheme": "One Half Dark",
+                "colorScheme": "Ayu Dark",
                 "commandline": "pwsh.exe -NoLogo",
                 "font": 
                 {
