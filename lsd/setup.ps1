@@ -1,5 +1,5 @@
 if (-Not (Test-Path "$env:APPDATA\lsd")) {
-    New-Item -ItemType "directory" -Name "lsd"
+    New-Item -ItemType "directory" -Name "$env:APPDATA\lsd"
 }
 Push-Location "$env:APPDATA\lsd"
 
