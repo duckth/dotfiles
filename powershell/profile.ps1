@@ -49,7 +49,9 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+# Useful modules
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
+Import-Module ZLocation
 
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"
