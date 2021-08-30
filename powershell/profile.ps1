@@ -53,6 +53,9 @@ if (Test-Path($ChocolateyProfile)) {
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 Import-Module ZLocation
 
+$env:PYTHONIOENCODING="utf-8"
+iex "$(thefuck --alias)"
+
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"
 $VIMFILE = "$HOME\dotfiles\nvim\init.vim"
