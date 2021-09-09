@@ -11,6 +11,7 @@ See the [wiki](https://github.com/Duckth/dotfiles/wiki/Setting-up-prerequisites)
 - [Windows Package Manager](https://github.com/microsoft/winget-cli/releases)
 - [Chocolatey](https://chocolatey.org/install)
 - [Scoop](https://scoop.sh)
+- [Python](https://www.python.org/downloads/release/python-397/)
 
 Always use an elevated terminal when installing packages from chocolatey or pip!
 
