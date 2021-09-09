@@ -50,7 +50,6 @@ if (Test-Path($ChocolateyProfile)) {
 }
 
 # Useful modules
-Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 Import-Module ZLocation
 
