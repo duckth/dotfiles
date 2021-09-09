@@ -12,6 +12,8 @@ See the [wiki](https://github.com/Duckth/dotfiles/wiki/Setting-up-prerequisites)
 - [Chocolatey](https://chocolatey.org/install)
 - [Scoop](https://scoop.sh)
 
+Always use an elevated terminal when installing packages from chocolatey or pip!
+
 ### PowerShell 7
 
 ```
@@ -108,6 +110,11 @@ scoop install bat
 
 ```
 scoop install lsd
+```
+
+#### thefuck
+```
+pip install thefuck
 ```
 
 ## Todos
