@@ -43,7 +43,6 @@ set undofile
 
 set incsearch
 
-set colorcolumn=80,100,120
 set nowrap
 
 let mapleader = " "
