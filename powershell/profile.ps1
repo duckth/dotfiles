@@ -53,7 +53,7 @@ if (Test-Path($ChocolateyProfile)) {
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 Import-Module ZLocation
 
-$env:PYTHONIOENCODING="utf-8"
+$env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
 
 # Custom variables
@@ -69,6 +69,7 @@ Set-Alias -Name "vim" -Value "nvim"
 Set-Alias -Name "vi" -Value "nvim"
 Set-Alias -Name "touch" -Value "New-Item"
 Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe" 
+Set-Alias -Name "which" -VALUE "where.exe"
 function ll() { lsd -l }
 
 
