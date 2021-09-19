@@ -51,7 +51,6 @@ if (Test-Path($ChocolateyProfile)) {
 
 # Useful modules
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
-Import-Module ZLocation
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
