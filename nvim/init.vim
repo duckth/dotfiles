@@ -15,6 +15,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Language specific
 Plug 'PProvost/vim-ps1'
 Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
 Plug 'pangloss/vim-javascript'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'rust-lang/rust.vim'
