@@ -71,11 +71,10 @@ Set-Alias -Name "vi" -Value "nvim"
 Set-Alias -Name "touch" -Value "New-Item"
 Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe" 
 Set-Alias -Name "which" -VALUE "where.exe"
-function ll() { lsd -l }
-
-
-
-
+Remove-Alias ll
+function ll() {
+  lsd -l
+}
 
 # Starship stuff
 Invoke-Expression (&starship init powershell)
