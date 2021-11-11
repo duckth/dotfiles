@@ -121,3 +121,4 @@ pip install thefuck
 ## Todos
 
 - [ ] Write an installation script (to put these files in the correct places, install dependencies if necessary etc.)
+- [ ] Fix wiki after new repo
