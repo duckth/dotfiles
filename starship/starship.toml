@@ -1,0 +1,12 @@
+[shell]
+disabled = false
+powershell_indicator = "pwsh"
+
+[cmd_duration]
+disabled = true
+
+[hostname]
+ssh_only = true 
+format =  "on [$hostname](bold red) "
+trim_at = ".companyname.com"
+disabled = false

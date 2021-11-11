@@ -1,0 +1,6 @@
+blocks:
+  - permission
+  - date
+  - size
+  - name
+symlink-arrow: ->
