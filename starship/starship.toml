@@ -10,3 +10,6 @@ ssh_only = true
 format =  "on [$hostname](bold red) "
 trim_at = ".companyname.com"
 disabled = false
+
+[ruby]
+detect_files = ".ruby-version"
