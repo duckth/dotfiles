@@ -1,3 +1,5 @@
+command_timeout = 1000
+
 [shell]
 disabled = false
 powershell_indicator = "pwsh"
@@ -12,4 +14,4 @@ trim_at = ".companyname.com"
 disabled = false
 
 [ruby]
-detect_files = ".ruby-version"
+detect_files = [".ruby-version"]
