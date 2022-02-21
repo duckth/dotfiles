@@ -105,7 +105,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent)
+plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,10 +148,42 @@ alias pullphrase="be rake i18n:phraseapp:pull"
 alias gstdiff="g stash show -p"
 alias gcamsg="git commit -am"
 alias fgco="fzf-git-checkout"
+alias pbcopy='clip.exe'
+alias pbpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # . ~/z/z.sh
+
+### FZF STUFF!!
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+_fzf_compgen_path() {
+    fd . "$1"
+}
+_fzf_compgen_dir() {
+    fd --type d . "$1"
+}
+
+fif() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Need a string to search for!";
+    return 1;
+  fi
+  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+unalias z 2> /dev/null
+z() {
+    [ $# -gt 0 ] && _z "$*" && return
+    cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
+
+### NO LONGER FZF STUFF
 eval "$(starship init zsh)"
+
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
