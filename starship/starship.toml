@@ -1,3 +1,5 @@
+command_timeout = 1000
+
 [shell]
 disabled = false
 powershell_indicator = "pwsh"
@@ -10,3 +12,6 @@ ssh_only = true
 format =  "on [$hostname](bold red) "
 trim_at = ".companyname.com"
 disabled = false
+
+[ruby]
+detect_files = [".ruby-version"]

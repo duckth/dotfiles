@@ -55,7 +55,6 @@ Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 Import-Module git-aliases -DisableNameChecking
 
 $env:PYTHONIOENCODING = "utf-8"
-iex "$(thefuck --alias)"
 
 # Custom variables
 $VIMDIR = "$HOME\Appdata\Local\nvim"

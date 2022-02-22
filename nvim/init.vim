@@ -1,9 +1,8 @@
 call plug#begin('~/.nvim/plugged')
 
-" Plug 'gruvbox-community/gruvbox' I'm sorry gruvbox! :(
+Plug 'gruvbox-community/gruvbox'
 Plug 'Luxed/ayu-vim'
 Plug 'tpope/vim-surround'
-Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
@@ -11,6 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Language specific
 Plug 'PProvost/vim-ps1'
@@ -23,7 +23,7 @@ Plug 'rust-lang/rust.vim'
 call plug#end()
 
 set termguicolors
-colorscheme ayu
+colorscheme gruvbox 
 
 set number
 set relativenumber
