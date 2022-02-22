@@ -1,5 +1,4 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -78,22 +77,10 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "alt+shift+l"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -113,10 +100,22 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 3
+                "action": "moveFocus",
+                "direction": "up"
             },
-            "keys": "alt+4"
+            "keys": "alt+k"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "horizontal"
+            },
+            "keys": "alt+shift+j"
         },
         {
             "command": 
@@ -125,14 +124,6 @@
                 "direction": "right"
             },
             "keys": "alt+l"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "alt+j"
         },
         {
             "command": 
@@ -170,6 +161,14 @@
             "command": 
             {
                 "action": "switchToTab",
+                "index": 2
+            },
+            "keys": "alt+3"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
                 "index": 7
             },
             "keys": "alt+8"
@@ -178,9 +177,41 @@
             "command": 
             {
                 "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
                 "index": 4
             },
             "keys": "alt+5"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 5
+            },
+            "keys": "alt+6"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 6
+            },
+            "keys": "alt+7"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 8
+            },
+            "keys": "alt+9"
         }
     ],
     "copyFormatting": "none",
@@ -193,7 +224,7 @@
         "list": 
         [
             {
-                "colorScheme": "OneDark",
+                "colorScheme": "Ayu Dark",
                 "commandline": "pwsh.exe -NoLogo",
                 "font": 
                 {
@@ -208,16 +239,25 @@
                 "tabColor": "#1E2127"
             },
             {
+                "bellStyle": "none",
+                "colorScheme": "Gruvbox Dark",
+                "font": 
+                {
+                    "face": "JetBrainsMono NF",
+                    "size": 12
+                },
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": null,
+                "tabColor": "#1E1E1E"
+            },
+            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{80013c8d-7949-58d1-ba8e-454d3fdaa640}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{2b9720db-c6c1-55b0-a4c7-0e1380d1ec18}",
@@ -366,29 +406,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#FAFAFA",
             "yellow": "#C18301"
-        },
-        {
-            "background": "#1E2127",
-            "black": "#1E2127",
-            "blue": "#61AFEF",
-            "brightBlack": "#5C6370",
-            "brightBlue": "#61AFEF",
-            "brightCyan": "#56B6C2",
-            "brightGreen": "#98C379",
-            "brightPurple": "#C678DD",
-            "brightRed": "#E06C75",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#D19A66",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#56B6C2",
-            "foreground": "#ABB2BF",
-            "green": "#98C379",
-            "name": "OneDark",
-            "purple": "#C678DD",
-            "red": "#E06C75",
-            "selectionBackground": "#FFFFFF",
-            "white": "#ABB2BF",
-            "yellow": "#D19A66"
         },
         {
             "background": "#002B36",
