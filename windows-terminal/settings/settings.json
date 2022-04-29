@@ -6,10 +6,10 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "up"
+                "action": "switchToTab",
+                "index": 8
             },
-            "keys": "alt+k"
+            "keys": "alt+9"
         },
         {
             "command": 
@@ -22,10 +22,22 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 8
+                "action": "moveFocus",
+                "direction": "up"
             },
-            "keys": "alt+9"
+            "keys": "alt+k"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 2
+            },
+            "keys": "alt+3"
         },
         {
             "command": "unbound",
@@ -66,18 +78,6 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "keys": "alt+3"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -86,10 +86,9 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 3
+                "action": "commandPalette"
             },
-            "keys": "alt+4"
+            "keys": "f1"
         },
         {
             "command": 
@@ -102,9 +101,10 @@
         {
             "command": 
             {
-                "action": "commandPalette"
+                "action": "switchToTab",
+                "index": 3
             },
-            "keys": "f1"
+            "keys": "alt+4"
         },
         {
             "command": "paste",
@@ -121,18 +121,18 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "alt+h"
-        },
-        {
-            "command": 
-            {
                 "action": "switchToTab",
                 "index": 6
             },
             "keys": "alt+7"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+h"
         },
         {
             "command": 
@@ -192,19 +192,32 @@
                 "tabColor": "#1E2127"
             },
             {
-                "bellStyle": "none",
                 "colorScheme": "Gruvbox Dark",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
                 "font": 
                 {
-                    "face": "JetBrainsMono NF",
-                    "size": 12
+                    "face": "JetBrainsMono NF"
                 },
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "guid": "{8a471790-5677-4080-9331-32fe184b7b87}",
                 "hidden": false,
-                "name": "Ubuntu-20.04",
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Ubuntu",
+                "padding": "10",
+                "startingDirectory": "~",
+                "tabColor": "#1E1E1E",
+                "useAcrylic": false
+            },
+            {
+                "colorScheme": "Nocturnal Winter",
+                "font": 
+                {
+                    "face": "JetBrainsMono NF"
+                },
+                "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+                "hidden": false,
+                "name": "kali-linux",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": null,
-                "tabColor": "#1E1E1E"
+                "tabColor": "#0D0D17"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -213,8 +226,26 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{2b9720db-c6c1-55b0-a4c7-0e1380d1ec18}",
+                "guid": "{81409d68-a207-5c4c-88a0-dc5b9b250658}",
                 "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{623f492b-0ec0-52dc-ba41-a047af9afe20}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{99ba21d2-eefe-50cc-82a8-36949dfbf0e9}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{70f4dcdf-28db-56f5-85e6-df90da811a24}",
+                "hidden": true,
                 "name": "Developer PowerShell for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
             }
@@ -313,6 +344,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#978771",
             "yellow": "#CC881A"
+        },
+        {
+            "background": "#0D0D17",
+            "black": "#4D4D4D",
+            "blue": "#3182E0",
+            "brightBlack": "#808080",
+            "brightBlue": "#6096FF",
+            "brightCyan": "#0AE78D",
+            "brightGreen": "#0AE78D",
+            "brightPurple": "#FF78A2",
+            "brightRed": "#F16D86",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFC67",
+            "cursorColor": "#E6E5E5",
+            "cyan": "#09C87A",
+            "foreground": "#E6E5E5",
+            "green": "#09CD7E",
+            "name": "Nocturnal Winter",
+            "purple": "#FF2B6D",
+            "red": "#F12D52",
+            "selectionBackground": "#ADBDD0",
+            "white": "#FCFCFC",
+            "yellow": "#F5F17A"
         },
         {
             "background": "#282C34",
@@ -498,5 +552,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "useAcrylicInTabRow": true
 }

@@ -1,15 +1,24 @@
 {
+	"dismissedMessages" : 
+	[
+		"setAsDefault"
+	],
 	"generatedProfiles" : 
 	[
 		"{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-		"{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
 		"{2c4de342-38b7-51cf-b940-2309a097f518}",
-		"{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+		"{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
 		"{dcf8ef09-4b91-5a4d-8c44-7ce81aa37a19}",
+		"{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 		"{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+		"{80013c8d-7949-58d1-ba8e-454d3fdaa640}",
 		"{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
 		"{c88756ca-ee23-53b2-b970-3b16eda94232}",
-		"{80013c8d-7949-58d1-ba8e-454d3fdaa640}",
-		"{2b9720db-c6c1-55b0-a4c7-0e1380d1ec18}"
+		"{99ba21d2-eefe-50cc-82a8-36949dfbf0e9}",
+		"{2b9720db-c6c1-55b0-a4c7-0e1380d1ec18}",
+		"{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+		"{81409d68-a207-5c4c-88a0-dc5b9b250658}",
+		"{623f492b-0ec0-52dc-ba41-a047af9afe20}",
+		"{70f4dcdf-28db-56f5-85e6-df90da811a24}"
 	]
 }
