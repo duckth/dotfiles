@@ -4,40 +4,8 @@
     "actions": 
     [
         {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
-            "keys": "alt+9"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "keys": "alt+6"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "alt+k"
-        },
-        {
             "command": "find",
             "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "keys": "alt+3"
         },
         {
             "command": "unbound",
@@ -78,10 +46,50 @@
         {
             "command": 
             {
+                "action": "switchToTab",
+                "index": 2
+            },
+            "keys": "alt+3"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 5
+            },
+            "keys": "alt+6"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 8
+            },
+            "keys": "alt+9"
+        },
+        {
+            "command": 
+            {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
         },
         {
             "command": 
@@ -97,14 +105,6 @@
                 "split": "down"
             },
             "keys": "alt+shift+j"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "keys": "alt+4"
         },
         {
             "command": "paste",
@@ -170,6 +170,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "experimental.rendering.software": false,
     "focusFollowMouse": true,
     "profiles": 
     {
@@ -193,7 +194,7 @@
             },
             {
                 "colorScheme": "Gruvbox Dark",
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-20.04",
                 "font": 
                 {
                     "face": "JetBrainsMono NF"
@@ -224,30 +225,6 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{81409d68-a207-5c4c-88a0-dc5b9b250658}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{623f492b-0ec0-52dc-ba41-a047af9afe20}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{99ba21d2-eefe-50cc-82a8-36949dfbf0e9}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{70f4dcdf-28db-56f5-85e6-df90da811a24}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },

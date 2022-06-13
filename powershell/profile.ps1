@@ -70,8 +70,9 @@ Set-Alias -Name "vi" -Value "nvim"
 Set-Alias -Name "touch" -Value "New-Item"
 Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe" 
 Set-Alias -Name "which" -VALUE "where.exe"
+Remove-Alias ll
 function ll() {
-  lsd -l
+  lsd -lAh
 }
 
 function groh() {
