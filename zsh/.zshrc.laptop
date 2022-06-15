@@ -21,6 +21,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 #export JAVA_HOME=$HOME/jdk-16.0.1+9
 # export JAVA_HOME=/snap/android-studio/current/android-studio/jre
 export PATH="$HOME/.local/bin:$PATH" 
+export PATH="$HOME/.local/bin/tools:$PATH"
 export EDITOR="nvim"
 # Ansible settings
 export ANSIBLE_COW_SELECTION=random
@@ -105,7 +106,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit)
+plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,8 +140,9 @@ source $ZSH/oh-my-zsh.sh
 #/usr/bin/keychain --nogui --quiet $HOME/.ssh/id_ed25519
 #source $HOME/.keychain/$HOSTNAME-sh
 
-alias ll="lsd -lA"
+alias ll="lsd -lAh"
 alias ls="lsd -l"
+alias llu="lsd -lAh --blocks permission,user,group,date,size,name"
 alias be="bundle exec"
 alias bi="bundle install"
 alias rmg="be rails db:migrate"
@@ -148,8 +150,8 @@ alias pullphrase="be rake i18n:phraseapp:pull"
 alias gstdiff="g stash show -p"
 alias gcamsg="git commit -am"
 alias fgco="fzf-git-checkout"
-alias pbcopy='clip.exe'
-alias pbpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
+alias wclip='clip.exe'
+alias wpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # . ~/z/z.sh
 
@@ -182,6 +184,11 @@ z() {
 }
 
 ### NO LONGER FZF STUFF
+
+# p2b_console() {
+#   eyk ps:console $(eyk ps -a appcore-$1 | grep -A1 -- '--- web' | tail -n1 | tr ' ' '\n' | head -n1) web appcore-$1 /bin/bash
+# }
+
 eval "$(starship init zsh)"
 
 
