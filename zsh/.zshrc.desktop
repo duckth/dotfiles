@@ -22,6 +22,7 @@ export EDITOR="nvim"
 # Ansible settings
 #export ANSIBLE_COW_SELECTION=random
 export BROWSER=wslview
+export GPG_TTY=$(tty)
 
 autoload -U add-zsh-hook
 load-nvmrc() {
