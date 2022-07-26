@@ -107,7 +107,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit git-flow gpg-agent)
+plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit git-flow gpg-agent rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -146,7 +146,6 @@ alias ls="lsd -l"
 alias llu="lsd -lAh --blocks permission,user,group,date,size,name"
 alias be="bundle exec"
 alias bi="bundle install"
-alias rmg="be rails db:migrate"
 alias pullphrase="be rake i18n:phraseapp:pull"
 alias gstdiff="g stash show -p"
 alias gcamsg="git commit -am"
