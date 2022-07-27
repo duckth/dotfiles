@@ -3,3 +3,5 @@
         st = status
         ci = commit
         br = branch
+[pull]
+        rebase = true
