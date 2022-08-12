@@ -121,7 +121,7 @@ nnoremap <silent>    <leader>w <Cmd>BufferClose<CR>
 "                          :BufferCloseBuffersLeft
 "                          :BufferCloseBuffersRight
 " Magic buffer-picking mode
-nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
+nnoremap <silent> <leader>bp    <Cmd>BufferPick<CR>
 " Sort automatically by...
 "
 " Other:
