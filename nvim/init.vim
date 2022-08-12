@@ -11,6 +11,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'folke/which-key.nvim'
+Plug 'romgrk/barbar.nvim'
 
 " Language specific
 Plug 'PProvost/vim-ps1'
@@ -21,6 +23,9 @@ Plug 'uiiaoo/java-syntax.vim'
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
+
+:lua require("nvim-tree").setup()
+:lua require("which-key").setup()
 
 set termguicolors
 colorscheme gruvbox 
@@ -48,43 +53,8 @@ set incsearch
 
 set nowrap
 
+" Set leader key to space
 let mapleader = " "
-
-" Automatically insert closing string, brace etc. ( -> ()
-"inoremap " ""<left>
-"inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap {<CR> {<CR>}<ESC>O
-"inoremap {;<CR> {<CR>};<ESC>O
-inoremap {<CR> {<CR>}<ESC>O
-
-nmap <leader>s ysiw
-
-" Keybinds to copy to and paste from clipboard (Windows only has one clipboard)
-vnoremap <leader>y "*y
-nnoremap <leader>p "*p
-
-" Keybinds to navigate splits
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-
-" Shorthand for accesing vertical resize command
-nnoremap <leader>vr :vertical resize 
-
-" I have to press Shift to insert a colon, so it happens far too often that I
-" write W rather than w and Q rather than q.. So let's map those to w and q..
-command W :w
-command Q :q
-
-" On Danish keyboards, Æ is where the : is on US keyboards
-nnoremap æ :
-
-" There is no dedicated backslash button on Danish keyboards.
-:tnoremap <Esc> <C-\><C-n>
 
 " Sets search for ripgrep to project root
 if executable('rg')
@@ -92,7 +62,7 @@ if executable('rg')
 endif
 
 " Open fzf with Ctrl + p
-nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 " Use tab and shift-tab to navigate coc completions. Enter to use completion.
@@ -108,38 +78,47 @@ nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
 " Add a space between // and the actual comment content in JS files
 autocmd FileType javascript let g:NERDSpaceDelims = 1
 
-" Compile and run Rust project in vertical split (only active in Rust files)
-autocmd FileType rust nnoremap<buffer> <leader>tr :vs <bar> :wincmd l <bar> term cargo run<CR>
+" Clear highlights after search
+nnoremap <leader><Esc> :noh<CR>
 
-" Autoformat rust on save
-let g:rustfmt_autosave = 1
+" Remaps for pasting from yank and not delete ( the 0 register)
+noremap <Leader>p "0p
+noremap <Leader>P "0P
+vnoremap <Leader>p "0p
 
-" Run python program with terminal output in vertical split. If main.py exists
-" in the current directory, run that - otherwise run the currently open file.
-function! RunPythonProgram()
-   if filereadable('main.py')
-       let pyfile = 'main.py'
-   else
-       " @% means the current file
-       let pyfile = @%
-   endif
-
-   echo 'Running' pyfile
-   execute 'vs | wincmd l | term python' pyfile
-endfunction
-
-" Keybind for running python program (only active in python files)
-autocmd FileType python nnoremap<buffer> <leader>tr :call RunPythonProgram()<CR>
-
-" WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
-endif
-
+" NvimTree keybinds (leader = space)
 nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <leader>nr :NvimTreeRefresh<CR>
+nnoremap <leader>nf :NvimTreeFocus<CR>
+nnoremap <leader>nc :NvimTreeClose<CR>
+
+" Move to previous/next
+nnoremap <silent>    <leader>, <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <leader>. <Cmd>BufferNext<CR>
+
+" Goto buffer in position...
+nnoremap <silent>    <leader>1 <Cmd>BufferGoto 1<CR>
+nnoremap <silent>    <leader>2 <Cmd>BufferGoto 2<CR>
+nnoremap <silent>    <leader>3 <Cmd>BufferGoto 3<CR>
+nnoremap <silent>    <leader>4 <Cmd>BufferGoto 4<CR>
+nnoremap <silent>    <leader>5 <Cmd>BufferGoto 5<CR>
+nnoremap <silent>    <leader>6 <Cmd>BufferGoto 6<CR>
+nnoremap <silent>    <leader>7 <Cmd>BufferGoto 7<CR>
+nnoremap <silent>    <leader>8 <Cmd>BufferGoto 8<CR>
+nnoremap <silent>    <leader>9 <Cmd>BufferGoto 9<CR>
+" Close buffer
+nnoremap <silent>    <leader>w <Cmd>BufferClose<CR>
+
+" Close commands
+"                          :BufferCloseAllButCurrent
+"                          :BufferCloseAllButPinned
+"                          :BufferCloseAllButCurrentOrPinned
+"                          :BufferCloseBuffersLeft
+"                          :BufferCloseBuffersRight
+" Magic buffer-picking mode
+nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
+" Sort automatically by...
+"
+" Other:
+" :BarbarEnable - enables barbar (enabled by default)
+" :BarbarDisable - very bad command, should never be used
