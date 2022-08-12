@@ -67,6 +67,9 @@ endif
 nnoremap <C-f> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 
+" ToggleTerm
+nnoremap <leader>tt :ToggleTerm direction="float"<CR>
+
 " Floating LazyGit terminal
 nnoremap <leader>gt <cmd>lua require ('utils.term').git_client_toggle()<CR>
 
