@@ -43,8 +43,8 @@ set number
 set relativenumber
 
 " Indentation settings
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 
@@ -70,9 +70,15 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
+" Default preview window in fzf
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat {}']}, <bang>0)
+
 " Open fzf with Ctrl + p
-nnoremap <C-f> :Files<CR>
+nnoremap <C-p> :Files<CR>
+
 let $FZF_DEFAULT_COMMAND = 'rg --files'
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " ToggleTerm
 nnoremap <leader>tt :ToggleTerm direction="float"<CR>
