@@ -1,7 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'Luxed/ayu-vim'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -15,6 +14,8 @@ Plug 'folke/which-key.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'neovim/nvim-lspconfig'
+Plug 'feline-nvim/feline.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Language specific
 Plug 'PProvost/vim-ps1'
@@ -26,13 +27,16 @@ Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
+set termguicolors
+
 :lua require("nvim-tree").setup()
 :lua require("which-key").setup()
 :lua require("toggleterm").setup()
+:lua require('feline').setup()
+:lua require('gitsigns').setup()
 lua << EOF
 require'lspconfig'.solargraph.setup{}
 EOF
-set termguicolors
 colorscheme gruvbox 
 
 set number
