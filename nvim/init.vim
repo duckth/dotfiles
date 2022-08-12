@@ -31,6 +31,7 @@ set termguicolors
 :lua require("nvim-tree").setup()
 :lua require("which-key").setup()
 :lua require("toggleterm").setup()
+:lua require('gitsigns').setup()
 
 lua << EOF
 require'lspconfig'.solargraph.setup{}
