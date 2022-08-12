@@ -10,7 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/which-key.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
