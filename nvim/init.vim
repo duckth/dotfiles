@@ -13,6 +13,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'folke/which-key.nvim'
 Plug 'romgrk/barbar.nvim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 
 " Language specific
 Plug 'PProvost/vim-ps1'
@@ -26,6 +27,7 @@ call plug#end()
 
 :lua require("nvim-tree").setup()
 :lua require("which-key").setup()
+:lua require("toggleterm").setup()
 
 set termguicolors
 colorscheme gruvbox 
@@ -65,6 +67,9 @@ endif
 nnoremap <C-f> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files'
 
+" Floating LazyGit terminal
+nnoremap <leader>gt <cmd>lua require ('utils.term').git_client_toggle()<CR>
+
 " Use tab and shift-tab to navigate coc completions. Enter to use completion.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -74,9 +79,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <leader>d :call CocAction('doHover')<CR>
 " Jump to definition
 nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
-
-" Add a space between // and the actual comment content in JS files
-autocmd FileType javascript let g:NERDSpaceDelims = 1
 
 " Clear highlights after search
 nnoremap <leader><Esc> :noh<CR>
