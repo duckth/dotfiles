@@ -3,7 +3,6 @@ call plug#begin('~/.nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -85,16 +84,6 @@ nnoremap <leader>tt :ToggleTerm direction="float"<CR>
 
 " Floating LazyGit terminal
 nnoremap <leader>gt <cmd>lua require ('utils.term').git_client_toggle()<CR>
-
-" Use tab and shift-tab to navigate coc completions. Enter to use completion.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Show docs
-nnoremap <leader>d :call CocAction('doHover')<CR>
-" Jump to definition
-nnoremap <leader>gd :call CocAction('jumpDefinition')<CR>
 
 " Clear highlights after search
 nnoremap <leader><Esc> :noh<CR>
