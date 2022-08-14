@@ -19,13 +19,24 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/impatient.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " Language specific
 Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 
+" True colors
 set termguicolors
+
+" For nvim-cmp ? dont know what it does
+set completeopt=menu,menuone,noselect
 
 :lua require('impatient')
 :lua require('nvim-tree').setup()
@@ -37,8 +48,9 @@ set termguicolors
 
 " Lua plugins with custom setup
 :lua require('plugins/lspconfig')
-:lua require('plugins/indent_blankline')
-:lua require('plugins/null_ls')
+:lua require('plugins/indent-blankline')
+:lua require('plugins/null-ls')
+:lua require('plugins/nvim-cmp')
 
 colorscheme gruvbox 
 
@@ -127,7 +139,7 @@ nnoremap <silent>    <leader>7 <Cmd>BufferGoto 7<CR>
 nnoremap <silent>    <leader>8 <Cmd>BufferGoto 8<CR>
 nnoremap <silent>    <leader>9 <Cmd>BufferGoto 9<CR>
 " Close buffer
-nnoremap <silent>    <leader>w <Cmd>BufferClose<CR>
+nnoremap <silent>    <leader>q <Cmd>BufferClose<CR>
 
 " Close commands
 "                          :BufferCloseAllButCurrent
@@ -143,3 +155,30 @@ nnoremap <silent> <leader>bp    <Cmd>BufferPick<CR>
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
 
+" NOTE: You can use other key to expand snippet.
+
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
