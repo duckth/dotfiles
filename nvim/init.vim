@@ -70,6 +70,7 @@ endif
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope git_branches<CR>
+nnoremap <leader>fr <cmd>Telescope oldfiles<CR>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ToggleTerm
