@@ -15,16 +15,16 @@ local hover = null_ls.builtins.hover
 -- completion sources
 local completion = null_ls.builtins.completion
 
-local null_ls = require("null-ls")
-
 -- register any number of sources simultaneously
 local sources = {
     formatting.prettier.with({
-        filetypes = { "html", "json", "yaml", "markdown" },
+        filetypes = { "html", "json", "yaml", "markdown", "yaml.ansible" },
     }),
     diagnostics.rubocop,
-    diagnostics.write_good,
     code_actions.gitsigns,
+    formatting.stylua,
+    diagnostics.luacheck,
+    hover.dictionary,
 }
 
 null_ls.setup({ sources = sources })
