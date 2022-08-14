@@ -14,6 +14,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Language specific
 Plug 'PProvost/vim-ps1'
