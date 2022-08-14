@@ -4,8 +4,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdcommenter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -14,6 +12,8 @@ Plug 'romgrk/barbar.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Language specific
 Plug 'PProvost/vim-ps1'
@@ -69,15 +69,11 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-" Default preview window in fzf
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat {}']}, <bang>0)
-
-" Open fzf with Ctrl + p
-nnoremap <C-p> :Files<CR>
-
-let $FZF_DEFAULT_COMMAND = 'rg --files'
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" Find files using Telescope command-line sugar.
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ToggleTerm
 nnoremap <leader>tt :ToggleTerm direction="float"<CR>
