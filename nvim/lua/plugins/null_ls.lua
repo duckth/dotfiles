@@ -1,5 +1,4 @@
 local null_ls = require("null-ls")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- code action sources
 local code_actions = null_ls.builtins.code_actions
 
@@ -13,7 +12,7 @@ local formatting = null_ls.builtins.formatting
 local hover = null_ls.builtins.hover
 
 -- completion sources
-local completion = null_ls.builtins.completion
+-- local completion = null_ls.builtins.completion
 
 -- register any number of sources simultaneously
 local sources = {
@@ -21,6 +20,7 @@ local sources = {
 		filetypes = { "html", "json", "yaml", "markdown", "yaml.ansible" },
 	}),
 	diagnostics.rubocop,
+	formatting.rubocop,
 	code_actions.gitsigns,
 	formatting.stylua,
 	hover.dictionary,
