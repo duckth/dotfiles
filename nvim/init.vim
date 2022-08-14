@@ -66,9 +66,9 @@ if executable('rg')
 endif
 
 " Find files using Telescope command-line sugar.
-nnoremap <C-p> <cmd>Telescope find_files<CR>
-" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope git_branches<CR>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " ToggleTerm
