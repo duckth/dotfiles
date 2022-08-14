@@ -88,6 +88,9 @@ vnoremap <Leader>p "0p
 
 nnoremap + <End>
 
+nnoremap æ :
+nnoremap q: :q<CR>
+
 " NvimTree keybinds (leader = space)
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>nr :NvimTreeRefresh<CR>
