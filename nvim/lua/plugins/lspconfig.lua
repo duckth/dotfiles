@@ -1,8 +1,30 @@
 local nvim_lsp = require("lspconfig")
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
+
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -34,12 +56,12 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "<space>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<space>fo", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "solargraph", "ansiblels" }
+local servers = { "solargraph", "ansiblels", "sumneko_lua" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
@@ -50,9 +72,9 @@ for _, lsp in ipairs(servers) do
 			solargraph = {
 				diagnostics = false,
 			},
-			ansiblels = {
+			ansible = {
 				ansibleLint = {
-					enabled = false,
+					enabled = true,
 				},
 			},
 		},
