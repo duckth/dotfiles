@@ -15,23 +15,31 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'lewis6991/impatient.nvim'
 
 " Language specific
-Plug 'PProvost/vim-ps1'
-Plug 'cespare/vim-toml'
-Plug 'stephpy/vim-yaml'
-Plug 'pangloss/vim-javascript'
-Plug 'uiiaoo/java-syntax.vim'
-Plug 'rust-lang/rust.vim'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 
 set termguicolors
 
-:lua require("nvim-tree").setup()
-:lua require("which-key").setup()
-:lua require("toggleterm").setup()
+:lua require('impatient')
+:lua require('nvim-tree').setup()
+:lua require('which-key').setup()
+:lua require('toggleterm').setup()
 :lua require('gitsigns').setup()
+:lua require('mason').setup()
+:lua require('mason-lspconfig').setup()
+
+" Lua plugins with custom setup
+:lua require('plugins/lspconfig')
+:lua require('plugins/indent_blankline')
+:lua require('plugins/null_ls')
 
 colorscheme gruvbox 
 
@@ -87,10 +95,17 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
+" end of line right next to start of line!
 nnoremap + <End>
 
+" rebind æ to : because it makes writing commands faster
 nnoremap æ :
+
+" rebind q: becuase i always hit it when trying to quti
 nnoremap q: :q<CR>
+
+" save on leader+s
+noremap <leader>s :w<CR>
 
 " NvimTree keybinds (leader = space)
 nnoremap <C-n> :NvimTreeToggle<CR>

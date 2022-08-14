@@ -158,7 +158,6 @@ alias wpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval $(thefuck --alias --enable-experimental-instant-mode)
 alias delbr="git branch -vv | rg ': gone' | choose 0 | gum choose --no-limit | xargs git branch -D"
-alias vtop="vtop --theme wizard"
 # . ~/z/z.sh
 
 ### FZF STUFF!!
