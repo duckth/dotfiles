@@ -22,6 +22,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # export JAVA_HOME=/snap/android-studio/current/android-studio/jre
 export PATH="$HOME/.local/bin:$PATH" 
 export PATH="$HOME/.local/bin/tools:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 export EDITOR="nvim"
 # Ansible settings
 export ANSIBLE_COW_SELECTION="random"
@@ -202,3 +203,8 @@ eval "$(starship init zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export CLASSPATH=".:$HOME/mycourselibraries/algs4.jar"
+
+# pnpm
+export PNPM_HOME="/home/duckth/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

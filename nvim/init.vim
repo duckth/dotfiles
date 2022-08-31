@@ -1,6 +1,8 @@
 call plug#begin('~/.nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -26,6 +28,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 " Language specific
 Plug 'pearofducks/ansible-vim'
@@ -35,9 +39,11 @@ call plug#end()
 " True colors
 set termguicolors
 
+set nofoldenable
+
 " For nvim-cmp ? dont know what it does
 set completeopt=menu,menuone,noselect
-
+set pumheight=10
 :lua require('impatient')
 :lua require('nvim-tree').setup()
 :lua require('which-key').setup()
@@ -52,7 +58,9 @@ set completeopt=menu,menuone,noselect
 :lua require('plugins/null-ls')
 :lua require('plugins/nvim-cmp')
 
-colorscheme gruvbox 
+let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_foreground = 'material'
+colorscheme gruvbox-material 
 
 set number
 set relativenumber
@@ -84,6 +92,19 @@ let mapleader = " "
 if executable('rg')
     let g:rg_derive_root='true'
 endif
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" DadBod (db) stuff
+nnoremap <silent> <leader>du :DBUIToggle<CR>
+nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
+let g:db_ui_save_location = '~/.config/db_ui'
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
