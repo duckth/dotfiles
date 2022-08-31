@@ -24,6 +24,7 @@ local sources = {
 	code_actions.gitsigns,
 	formatting.stylua,
 	hover.dictionary,
+	formatting.gofumpt,
 }
 
 null_ls.setup({

@@ -9,7 +9,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/which-key.nvim'
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/gitsigns.nvim'
@@ -30,6 +31,8 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'terrortylor/nvim-comment'
+Plug 'jiangmiao/auto-pairs'
 
 " Language specific
 Plug 'pearofducks/ansible-vim'
@@ -47,16 +50,19 @@ set pumheight=10
 :lua require('impatient')
 :lua require('nvim-tree').setup()
 :lua require('which-key').setup()
-:lua require('toggleterm').setup()
 :lua require('gitsigns').setup()
 :lua require('mason').setup()
 :lua require('mason-lspconfig').setup()
+:lua require('bufferline').setup()
+:lua require('nvim_comment').setup()
 
 " Lua plugins with custom setup
 :lua require('plugins/lspconfig')
 :lua require('plugins/indent-blankline')
 :lua require('plugins/null-ls')
 :lua require('plugins/nvim-cmp')
+
+:lua require('plugins/toggleterm')
 
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_foreground = 'material'
@@ -115,6 +121,7 @@ nnoremap <leader>fr <cmd>Telescope oldfiles<CR>
 
 " ToggleTerm
 nnoremap <leader>tt :ToggleTerm direction="float"<CR>
+nnoremap <leader>th :ToggleTerm direction="horizontal"<CR>
 
 " Floating LazyGit terminal
 nnoremap <leader>gt <cmd>lua require ('utils.term').git_client_toggle()<CR>
@@ -145,36 +152,49 @@ nnoremap <leader>nr :NvimTreeRefresh<CR>
 nnoremap <leader>nf :NvimTreeFocus<CR>
 nnoremap <leader>nc :NvimTreeClose<CR>
 
-" Move to previous/next
-nnoremap <silent>    <leader>, <Cmd>BufferPrevious<CR>
-nnoremap <silent>    <leader>. <Cmd>BufferNext<CR>
-
-" Goto buffer in position...
-nnoremap <silent>    <leader>1 <Cmd>BufferGoto 1<CR>
-nnoremap <silent>    <leader>2 <Cmd>BufferGoto 2<CR>
-nnoremap <silent>    <leader>3 <Cmd>BufferGoto 3<CR>
-nnoremap <silent>    <leader>4 <Cmd>BufferGoto 4<CR>
-nnoremap <silent>    <leader>5 <Cmd>BufferGoto 5<CR>
-nnoremap <silent>    <leader>6 <Cmd>BufferGoto 6<CR>
-nnoremap <silent>    <leader>7 <Cmd>BufferGoto 7<CR>
-nnoremap <silent>    <leader>8 <Cmd>BufferGoto 8<CR>
-nnoremap <silent>    <leader>9 <Cmd>BufferGoto 9<CR>
-" Close buffer
-nnoremap <silent>    <leader>q <Cmd>BufferClose<CR>
-
-" Close commands
-"                          :BufferCloseAllButCurrent
-"                          :BufferCloseAllButPinned
-"                          :BufferCloseAllButCurrentOrPinned
-"                          :BufferCloseBuffersLeft
-"                          :BufferCloseBuffersRight
-" Magic buffer-picking mode
-nnoremap <silent> <leader>bp    <Cmd>BufferPick<CR>
-" Sort automatically by...
+" commented because i now use bufferline
+" " Move to previous/next
+" nnoremap <silent>    <leader>, <Cmd>BufferPrevious<CR>
+" nnoremap <silent>    <leader>. <Cmd>BufferNext<CR>
 "
+" " Goto buffer in position...
+" nnoremap <silent>    <leader>1 <Cmd>BufferGoto 1<CR>
+" nnoremap <silent>    <leader>2 <Cmd>BufferGoto 2<CR>
+" nnoremap <silent>    <leader>3 <Cmd>BufferGoto 3<CR>
+" nnoremap <silent>    <leader>4 <Cmd>BufferGoto 4<CR>
+" nnoremap <silent>    <leader>5 <Cmd>BufferGoto 5<CR>
+" nnoremap <silent>    <leader>6 <Cmd>BufferGoto 6<CR>
+" nnoremap <silent>    <leader>7 <Cmd>BufferGoto 7<CR>
+" nnoremap <silent>    <leader>8 <Cmd>BufferGoto 8<CR>
+" nnoremap <silent>    <leader>9 <Cmd>BufferGoto 9<CR>
+" " Close buffer
+" nnoremap <silent>    <leader>q <Cmd>BufferClose<CR>
+"
+" " Close commands
+" "                          :BufferCloseAllButCurrent
+" "                          :BufferCloseAllButPinned
+" "                          :BufferCloseAllButCurrentOrPinned
+" "                          :BufferCloseBuffersLeft
+" "                          :BufferCloseBuffersRight
+" " Magic buffer-picking mode
+" nnoremap <silent> <leader>bp    <Cmd>BufferPick<CR>
+" " Sort automatically by...
+" "
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+
+" Bufferline maps
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent><leader>q <Cmd>bdelete<CR>
 
 " NOTE: You can use other key to expand snippet.
 
