@@ -64,6 +64,11 @@ set pumheight=10
 
 :lua require('plugins/toggleterm')
 
+
+" let g:catppuccin_flavour = 'mocha' " latte, frappe, macchiato, mocha
+" :lua require('catppuccin').setup()
+" colorscheme catppuccin
+
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_foreground = 'material'
 colorscheme gruvbox-material 

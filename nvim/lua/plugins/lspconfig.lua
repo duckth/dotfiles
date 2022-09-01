@@ -63,7 +63,7 @@ end
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "solargraph", "ansiblels", "sumneko_lua", "sqls", "gopls" }
+local servers = { "solargraph", "sumneko_lua", "sqls", "gopls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
@@ -74,11 +74,6 @@ for _, lsp in ipairs(servers) do
 		settings = {
 			solargraph = {
 				diagnostics = false,
-			},
-			ansible = {
-				ansibleLint = {
-					enabled = true,
-				},
 			},
 			Lua = {
 				runtime = {
