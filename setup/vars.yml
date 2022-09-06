@@ -1,0 +1,41 @@
+ansible_user: duckth
+# Default theme
+oh_my_zsh_theme: robbyrussell
+
+# Default plugins
+oh_my_zsh_plugins:
+  - git
+
+# Wether to install by default for all specified users.
+# May be overridden by `oh_my_zsh: install:` under each user.
+oh_my_zsh_install: yes
+
+# User configuration
+# Important: oh-my-zsh is installed per user so you need to specify the users to install it for.
+users:
+  - username: "{{ ansible_user }}" 
+    oh_my_zsh:
+      theme: robbyrussell
+      plugins:
+        - git
+
+custom_zsh_plugins:
+  - git@github.com:unixorn/fzf-zsh-plugin.git
+  - git@github.com:djui/alias-tips.git
+  - git@github.com:zsh-users/zsh-autosuggestions.git
+  - git@github.com:zsh-users/zsh-syntax-highlighting.git
+
+homebrew_packages:
+  - gcc
+  - starship
+  - fd
+  - ripgrep
+  - gum
+  - choose-rust
+  - tealdeer
+  - gh
+  - bat
+  - lsd
+  - lazygit
+  - rbenv
+  - ruby-build

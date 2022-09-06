@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - vars.yml
+  roles:
+    - gantsign.oh-my-zsh
+  tasks:
+    - name: Install Homebrew
+      ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      register: brew_output
+      changed_when: brew_output != 0
+    - name: Install Homebrew packages
+      community.general.homebrew:
+        name: "{{ homebrew_packages }}"
+        state: latest
+        update_homebrew: true
+        upgrade_all: true
+    - name: Install nvm
+      shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+      args:
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    - name: Install neovim-nightly
+      community.general.homebrew:
+        name: neovim
+        state: head
+    - name: Install vim-plug
+      shell: >
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    - name: Clone dotfiles repo
+      ansible.builtin.git:
+        repo: git@github.com:duckth/dotfiles.git
+        dest: "/home/{{ ansible_user }}/dotfiles"
+    - name: Clone custom omz plugins
+      ansible.builtin.git:
+        repo: "{{ item }}"
+        dest: "/home/{{ ansible_user }}/.oh-my-zsh/custom/plugins/{{ item.split('/')[1].split('.')[0] }}"
+      with_items: "{{ custom_zsh_plugins }}"
