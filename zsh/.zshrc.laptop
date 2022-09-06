@@ -111,7 +111,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin git-it-on colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent forgit git-flow gpg-agent rails)
+plugins=(git sudo zsh-autosuggestions fzf-zsh-plugin colored-man-pages zsh-syntax-highlighting ansible alias-tips z ssh-agent git-flow gpg-agent rails)
 
 source $ZSH/oh-my-zsh.sh
 
