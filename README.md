@@ -80,3 +80,9 @@ then
 ```bash
 ansible-galaxy collection install community.general
 ```
+
+### Run playbook
+```bash
+ansible-playbook setup/main.yml
+```
+Sit back and watch the magic happen...
