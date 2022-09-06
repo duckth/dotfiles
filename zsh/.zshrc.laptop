@@ -6,7 +6,6 @@ export ZSH="/home/$USER/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 # export JAVA_HOME=$HOME/jdk-11.0.13+8
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
@@ -157,6 +156,7 @@ alias fgco="fzf-git-checkout"
 alias wclip='clip.exe'
 alias wpaste="powershell.exe -command 'Get-Clipboard' | head -n -1"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(rbenv init -)"
 alias delbr="git branch -vv | rg ': gone' | choose 0 | gum choose --no-limit | xargs git branch -D"
 # . ~/z/z.sh
 
