@@ -82,6 +82,7 @@ ansible-galaxy collection install community.general
 ```
 
 ### Run playbook
+(still a work in progress)
 ```bash
 ansible-playbook setup/main.yml
 ```
