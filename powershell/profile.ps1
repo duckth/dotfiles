@@ -43,16 +43,10 @@ Write-Host ''
 
 #}
 
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
-
 # Useful modules
-Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
+# Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 
-Import-Module git-aliases -DisableNameChecking
+# Import-Module git-aliases -DisableNameChecking
 
 $env:PYTHONIOENCODING = "utf-8"
 
@@ -70,15 +64,14 @@ Set-Alias -Name "vi" -Value "nvim"
 Set-Alias -Name "touch" -Value "New-Item"
 Set-Alias -Name "vlc" -Value "C:\Program Files\VideoLAN\VLC\vlc.exe" 
 Set-Alias -Name "which" -VALUE "where.exe"
-Remove-Alias ll
 function ll() {
   lsd -lAh
 }
 
 function groh() {
-    $CurrentBranch = Get-Git-CurrentBranch 
-    git reset --hard origin/$CurrentBranch
-  }
+  $CurrentBranch = Get-Git-CurrentBranch 
+  git reset --hard origin/$CurrentBranch
+}
 
 # Starship stuff
 Invoke-Expression (&starship init powershell)
