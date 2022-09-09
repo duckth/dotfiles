@@ -33,6 +33,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'terrortylor/nvim-comment'
 Plug 'jiangmiao/auto-pairs'
+Plug 'APZelos/blamer.nvim'
 
 " Language specific
 Plug 'pearofducks/ansible-vim'
@@ -69,8 +70,8 @@ set pumheight=10
 " :lua require('catppuccin').setup()
 " colorscheme catppuccin
 
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_foreground = 'material'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_foreground = 'mix'
 colorscheme gruvbox-material 
 
 set number
@@ -98,6 +99,9 @@ set nowrap
 
 " Set leader key to space
 let mapleader = " "
+
+" No git blame in inset mode
+let g:blamer_show_in_insert_modes = 0
 
 " Sets search for ripgrep to project root
 if executable('rg')
@@ -139,8 +143,14 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
+" Select all with space+a
+nnoremap <Leader>a ggVG
+
+" Toggle git blame on space+b
+noremap <Leader>b <cmd>BlamerToggle<CR>
+
 " end of line right next to start of line!
-nnoremap + <End>
+noremap + <End>
 
 " rebind æ to : because it makes writing commands faster
 nnoremap æ :
