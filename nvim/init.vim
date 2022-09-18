@@ -34,6 +34,7 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'terrortylor/nvim-comment'
 Plug 'jiangmiao/auto-pairs'
 Plug 'APZelos/blamer.nvim'
+Plug 'github/copilot.vim'
 
 " Language specific
 Plug 'pearofducks/ansible-vim'
@@ -88,6 +89,8 @@ autocmd FileType javascript set tabstop=2 softtabstop=2
 autocmd FileType javascript set shiftwidth=2
 autocmd FileType yaml set tabstop=2 softtabstop=2
 autocmd FileType yaml set shiftwidth=2
+autocmd FileType cs set tabstop=4 softtabstop=4
+autocmd FileType cs set shiftwidth=4
 
 set noswapfile
 set undodir=$HOME/.nvim/undodir
@@ -102,6 +105,11 @@ let mapleader = " "
 
 " No git blame in inset mode
 let g:blamer_show_in_insert_modes = 0
+
+" No copilot in c# (for BDSA)
+let g:copilot_filetypes = {
+                              \ 'cs': v:false,
+                              \ }
 
 " Sets search for ripgrep to project root
 if executable('rg')
