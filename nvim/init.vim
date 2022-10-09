@@ -78,6 +78,9 @@ colorscheme gruvbox-material
 set number
 set relativenumber
 
+" Unix line terminate
+set ff=unix
+
 " Indentation settings
 set tabstop=2 softtabstop=2
 set shiftwidth=2

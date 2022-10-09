@@ -217,3 +217,5 @@ export CLASSPATH=".:$HOME/mycourselibraries/algs4.jar"
 export PNPM_HOME="/home/duckth/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+source /etc/zsh_command_not_found
+export PATH="$PATH:/home/duckth/.dotnet/tools"
