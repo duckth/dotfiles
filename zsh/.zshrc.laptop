@@ -21,6 +21,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # export JAVA_HOME=/snap/android-studio/current/android-studio/jre
 export PATH="$HOME/.local/bin:$PATH" 
 export PATH="$HOME/.local/bin/tools:$PATH"
+export PATH="$HOME/.local/bin/flutter/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export EDITOR="nvim"
 # Ansible settings
@@ -29,6 +30,7 @@ export BROWSER="wslview"
 export HOSTNAME="A-Surface"
 export WINHOME="/mnt/c/Users/andre"
 export GPG_TTY="$(tty)"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Mailtrap config
 source ~/.mailtraprc

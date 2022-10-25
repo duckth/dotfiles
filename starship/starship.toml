@@ -15,3 +15,6 @@ disabled = false
 
 [ruby]
 detect_files = [".ruby-version"]
+
+[container]
+disabled = true
