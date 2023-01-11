@@ -35,6 +35,8 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # Mailtrap config
 source ~/.mailtraprc
 
+# LocaleData
+source ~/.localedatarc
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -152,7 +154,7 @@ alias ls="lsd -l"
 alias llu="lsd -lAh --blocks permission,user,group,date,size,name"
 alias be="bundle exec"
 alias bi="bundle install"
-alias pullphrase="be rake i18n:phraseapp:pull"
+alias ldpull="be rake i18n:localedata:pull"
 alias gstdiff="g stash show -p"
 alias gcamsg="git commit -am"
 alias fgco="fzf-git-checkout"
@@ -162,6 +164,8 @@ alias gfpr='git fetch --all --prune'
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 alias delbr="git branch -vv | rg ': gone' | choose 0 | gum choose --no-limit | xargs git branch -D"
+alias rs="bundle exec rails server"
+alias rc="bundle exec rails console"
 # . ~/z/z.sh
 eval "$(rbenv init - zsh)"
 
