@@ -16,7 +16,7 @@ local hover = null_ls.builtins.hover
 
 -- register any number of sources simultaneously
 local sources = {
-	formatting.prettier.with({
+	formatting.prettierd.with({
 		filetypes = { "html", "json", "yaml", "markdown", "yaml.ansible" },
 	}),
 	diagnostics.rubocop,
@@ -25,6 +25,7 @@ local sources = {
 	formatting.stylua,
 	hover.dictionary,
 	formatting.gofumpt,
+	formatting.autopep8,
 }
 
 null_ls.setup({

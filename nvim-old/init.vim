@@ -109,11 +109,6 @@ let mapleader = " "
 " No git blame in inset mode
 let g:blamer_show_in_insert_modes = 0
 
-" No copilot in c# (for BDSA)
-let g:copilot_filetypes = {
-                              \ 'cs': v:false,
-                              \ }
-
 " Sets search for ripgrep to project root
 if executable('rg')
     let g:rg_derive_root='true'
@@ -177,6 +172,9 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>nr :NvimTreeRefresh<CR>
 nnoremap <leader>nf :NvimTreeFocus<CR>
 nnoremap <leader>nc :NvimTreeClose<CR>
+
+imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
 
 " commented because i now use bufferline
 " " Move to previous/next
