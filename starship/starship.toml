@@ -21,6 +21,9 @@ ssh_symbol = " "
 [container]
 disabled = true
 
+[git_metrics]
+disabled = false
+
 [aws]
 symbol = "  "
 
@@ -44,9 +47,6 @@ symbol = " "
 
 [elm]
 symbol = " "
-
-[fossil_branch]
-symbol = " "
 
 [golang]
 symbol = " "
