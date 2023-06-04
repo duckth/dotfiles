@@ -7,8 +7,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'lewis6991/impatient.nvim'
+Plug 'terrortylor/nvim-comment'
+Plug 'folke/which-key.nvim'
+Plug 'eandrju/cellular-automaton.nvim'
 
 call plug#end()
+
+:lua require('impatient')
+:lua require('nvim-tree').setup()
+:lua require('which-key').setup()
+:lua require('nvim_comment').setup()
 
 if has('termguicolors')
   set termguicolors
@@ -20,7 +32,7 @@ let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_foreground = 'mix'
 " For better performance
 let g:gruvbox_material_better_performance = 1
-" colorscheme gruvbox-material
+colorscheme gruvbox-material
 
 set number
 set relativenumber
@@ -56,6 +68,23 @@ let &t_EI = "\e[2 q"
 " Set leader key to space
 let mapleader = " "
 
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope git_branches<CR>
+nnoremap <leader>fr <cmd>Telescope oldfiles<CR>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" NvimTree keybinds (leader = space)
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>nr :NvimTreeRefresh<CR>
+nnoremap <leader>nf :NvimTreeFocus<CR>
+nnoremap <leader>nc :NvimTreeClose<CR>
+
 " Clear highlights after search
 nnoremap <leader><Esc> :noh<CR>
 
@@ -78,4 +107,6 @@ nnoremap q: :q<CR>
 
 " save on leader+s
 noremap <leader>s :w<CR>
+
+nnoremap <leader>fml <cmd>CellularAutomaton make_it_rain<CR>
 
