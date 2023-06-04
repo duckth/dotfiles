@@ -78,6 +78,9 @@ symbol = "󰍛 "
 [nodejs]
 symbol = " "
 
+[os]
+disabled = false
+
 [os.symbols]
 Arch = " "
 EndeavourOS = " "
