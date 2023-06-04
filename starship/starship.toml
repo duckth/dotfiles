@@ -1,5 +1,9 @@
 command_timeout = 1000
 
+[character]
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
+
 [shell]
 disabled = false
 powershell_indicator = "pwsh"
@@ -12,9 +16,93 @@ ssh_only = true
 format =  "on [$hostname](bold red) "
 trim_at = ".companyname.com"
 disabled = false
-
-[ruby]
-detect_files = [".ruby-version"]
+ssh_symbol = " "
 
 [container]
 disabled = true
+
+[aws]
+symbol = "  "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Arch = " "
+EndeavourOS = " "
+Linux = " "
+Manjaro = " "
+Mint = " "
+Ubuntu = " "
+Windows = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+detect_files = [".ruby-version"]
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
