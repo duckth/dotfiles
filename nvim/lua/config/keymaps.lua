@@ -20,3 +20,6 @@ map("n", "<C-A>", "ggVG", { desc = "Select everything" })
 
 -- find files on ctrl + p
 map("n", "<C-P>", ":Telescope find_files<CR>", { desc = "Find files" })
+
+-- fml
+map("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Give up" })
