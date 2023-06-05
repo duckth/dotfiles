@@ -17,3 +17,6 @@ end
 
 -- select everything on ctrl + a
 map("n", "<C-A>", "ggVG", { desc = "Select everything" })
+
+-- find files on ctrl + p
+map("n", "<C-P>", ":Telescope find_files<CR>", { desc = "Find files" })
