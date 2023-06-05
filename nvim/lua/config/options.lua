@@ -4,3 +4,10 @@
 vim.g.gruvbox_material_background = "hard"
 vim.g.gruvbox_material_foreground = "mix"
 vim.g.gruvbox_material_better_performance = 1
+
+-- fold stuff
+vim.o.foldmethod = "indent"
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
