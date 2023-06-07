@@ -1,5 +1,10 @@
--- Desc: List of plugins to install (ones that do not require any config)
+-- Desc: Plugins and config
 return {
-  { "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
-  { "eandrju/cellular-automaton.nvim" },
+  {
+    "eandrju/cellular-automaton.nvim",
+    -- lazy load on keybind
+    keys = {
+      { "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "Give up" },
+    }
+  },
 }
