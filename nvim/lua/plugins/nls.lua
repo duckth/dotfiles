@@ -9,6 +9,9 @@ return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
           nls.builtins.formatting.black,
+          nls.builtins.diagnostics.rubocop.with({
+            disabled_filetypes = { "ruby" },
+          })
         },
       }
     end,

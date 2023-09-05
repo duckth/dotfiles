@@ -5,13 +5,6 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        solargraph = {
-          settings = {
-            solargraph = {
-              diagnostics = false,
-            },
-          },
-        },
         eslint = {}
       },
       setup = {
