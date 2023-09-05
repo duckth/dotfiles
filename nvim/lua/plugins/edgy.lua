@@ -83,5 +83,8 @@ return {
         win:resize("height", -2)
       end,
     },
+    animate = {
+      enabled = false
+    }
   },
 }
