@@ -6,12 +6,17 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/conflict-marker.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-if has('termguicolors')
-  set termguicolors
-endif
+
+" Weird ass hack to fix colors in tmux
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set termguicolors
+
 " For dark version.
 set background=dark
 " Available values: 'hard', 'medium'(default), 'soft'
@@ -67,6 +72,9 @@ let &t_EI = "\e[2 q"
 
 " Set leader key to space
 let mapleader = " "
+
+" File explorer
+nnoremap <leader>e :Explore<CR>
 
 " Clear highlights after search
 nnoremap <leader><Esc> :noh<CR>
