@@ -5,11 +5,11 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        eslint = {}
+        eslint = {},
       },
       setup = {
         eslint = function()
-          require("lazyvim.util").on_attach(function(client)
+          require("lazyvim.util").lsp.on_attach(function(client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
             elseif client.name == "tsserver" then
@@ -17,7 +17,7 @@ return {
             end
           end)
         end,
-      }
+      },
     },
   },
 }
