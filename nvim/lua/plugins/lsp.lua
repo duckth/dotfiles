@@ -6,6 +6,7 @@ return {
       ---@type lspconfig.options
       servers = {
         eslint = {},
+        ruby_ls = {},
       },
       setup = {
         eslint = function()
