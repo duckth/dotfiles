@@ -14,4 +14,4 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- fix for weird ruby indent thing
-vim.cmd [[autocmd FileType ruby setlocal indentkeys-=.]]
+vim.cmd([[autocmd FileType ruby setlocal indentkeys-=.]])

@@ -1,14 +1,14 @@
 return {
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
-  { "sainnhe/gruvbox-material", priority = 1000 },
-  { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
+  { "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
+  { "duckth/gruvbox-material", priority = 1000 },
+  -- { "catppuccin/nvim", lazy = false, name = "catppuccin", priority = 1000 },
   {
     "neanias/everforest-nvim",
     version = false,
     priority = 1000,
     config = function()
       require("everforest").setup({
-        background = "soft",
+        background = "hard",
         transparent_background_level = 0,
         italics = false,
       })
