@@ -36,7 +36,7 @@ set ff=unix
 set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
-set smartindent
+set autoindent
 
 " File type specific indentation spacings
 autocmd FileType javascript set tabstop=2 softtabstop=2
