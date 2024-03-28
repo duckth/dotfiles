@@ -19,16 +19,12 @@ end
 map("n", "<C-A>", "ggVG", { desc = "Select everything" })
 
 -- end of line next to start of line
-map("n", "+", "<End>", { desc = "End of line" })
+map({ "n", "v" }, "+", "<End>", { desc = "End of line" })
 
 -- find files on ctrl + p
 map("n", "<C-P>", ":Telescope find_files<CR>", { desc = "Find files" })
 
 -- buffers (currently disabled bc i disabled bufferline)
--- map("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
--- map("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
--- map("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
--- map("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
 -- map("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
 -- map("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
 -- map("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
@@ -36,7 +32,33 @@ map("n", "<C-P>", ":Telescope find_files<CR>", { desc = "Find files" })
 -- map("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
 
 -- map comma to backtick so i can use precise marks
-map("n", ",", "`", { desc = "Use backtick instead of comma" })
+map({ "n", "v" }, ",", "`", { desc = "Use backtick instead of comma" })
+-- map dash to tilde so i can use it
+map({ "n", "v" }, "-", "~", { desc = "Use dash instead of tilde" })
+
+-- recent files on ½
+map("n", "½", "<Cmd>Telescope oldfiles<CR>", { desc = "Show recent files (Telescope)" })
+
+-- buffers on tab
+map("n", "<Tab>", "<Cmd>Telescope buffers<CR>", { desc = "Show buffers (Telescope)" })
 
 -- map leader + dot to harpoon marks
 map("n", "<leader>.", "<Cmd>Telescope harpoon marks<CR>", { desc = "Show harpoon marks (Telescope)" })
+
+map("n", "<leader>e", "<Cmd>Neotree reveal<CR>", { desc = "NeoTree Reveal" })
+
+map("i", "<C-a>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true, desc = "Codeium Accept" })
+
+map("i", "<C-x>", function()
+  return vim.fn["codeium#Clear"]()
+end, { expr = true, silent = true, desc = "Codeium Clear" })
+
+map("i", "<C-l>", function()
+  return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true, desc = "Codeium Cycle" })
+
+map("i", "<C-h>", function()
+  return vim.fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true, desc = "Codeium Cycle" })

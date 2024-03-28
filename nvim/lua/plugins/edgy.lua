@@ -37,7 +37,7 @@ return {
         end,
       },
       "Trouble",
-      { ft = "qf",                title = "QuickFix" },
+      { ft = "qf", title = "QuickFix" },
       {
         ft = "help",
         size = { height = 20 },
@@ -46,24 +46,24 @@ return {
           return vim.bo[buf].buftype == "help"
         end,
       },
-      { ft = "spectre_panel",     size = { height = 0.4 } },
+      { ft = "spectre_panel", size = { height = 0.4 } },
       { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
     },
     left = {
-      {
-        title = "Neo-Tree",
-        ft = "neo-tree",
-        filter = function(buf)
-          return vim.b[buf].neo_tree_source == "filesystem"
-        end,
-        pinned = true,
-        open = function()
-          vim.api.nvim_input("<esc><space>e")
-        end,
-        size = { height = 0.5 },
-      },
-      { title = "Neotest Summary", ft = "neotest-summary" },
-      "neo-tree",
+      -- {
+      --   title = "Neo-Tree",
+      --   ft = "neo-tree",
+      --   filter = function(buf)
+      --     return vim.b[buf].neo_tree_source == "filesystem"
+      --   end,
+      --   pinned = true,
+      --   open = function()
+      --     vim.api.nvim_input("<esc><space>e")
+      --   end,
+      --   size = { height = 0.5 },
+      -- },
+      -- { title = "Neotest Summary", ft = "neotest-summary" },
+      -- "neo-tree",
     },
     keys = {
       -- increase width
@@ -84,7 +84,7 @@ return {
       end,
     },
     animate = {
-      enabled = false
-    }
+      enabled = false,
+    },
   },
 }

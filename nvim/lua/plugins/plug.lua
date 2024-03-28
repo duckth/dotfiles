@@ -32,4 +32,36 @@ return {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        position = "float",
+      },
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        },
+      },
+    },
+  },
+  {
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+    -- config = function()
+    --   vim.keymap.set("i", "<S-Tab>", function()
+    --     return vim.fn["codeium#Accept"]()
+    --   end, { expr = true, silent = true })
+    --   vim.keymap.set("i", "<C-l>", function()
+    --     return vim.fn["codeium#CycleCompletions"](1)
+    --   end, { expr = true, silent = true })
+    --   vim.keymap.set("i", "<C-h>", function()
+    --     return vim.fn["codeium#CycleCompletions"](-1)
+    --   end, { expr = true, silent = true })
+    --   vim.keymap.set("i", "<C-x>", function()
+    --     return vim.fn["codeium#Clear"]()
+    --   end, { expr = true, silent = true })
+    -- end,
+  },
 }
